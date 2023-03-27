@@ -1,6 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 
+function MagicButton() {
+  return (
+    <button>Magic</button>
+  )
+}
+
 function App() {
   return (
     <div className="App">
@@ -15,7 +21,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React with Helen and MSU!
         </a>
       </header>
     </div>
