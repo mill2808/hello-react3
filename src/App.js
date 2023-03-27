@@ -1,49 +1,50 @@
 //import logo from './logo.svg';
+import logo from './willow.jpg';
 import './App.css';
 
-const magazines = [
-  {id: 1, title: 'Architectural Digest', theme: 'architecture', isAvailable: true},
-  {id: 1, title: 'Dwell', theme: 'architecture', isAvailable: true},
-  {id: 1, title: 'Communication Arts', theme: 'design', isAvailable: false},
+const species = [
+  {id: 1, title: 'Weeping Willow', theme: 'deciduous', isAvailable: true},
+  {id: 1, title: 'Spruce', theme: 'evergreen', isAvailable: false},
+  {id: 1, title: 'White Oak', theme: 'deciduous', isAvailable: true},
 ];
 
-function ZineRack() {
-  const listZines = magazines.map(zine =>
+function TreeTypes() {
+  const listTrees = species.map(trees =>
     <li 
-      key={zine.id}
+      key={trees.id}
       style={{
-        color: zine.isAvailable ? 'red' : 'green'
+        color: trees.isAvailable ? 'yellow' : 'green'
       }}
       >
-        {zine.title}
+        {trees.title}
       </li>
     );
   return (
-    <ul>{listZines}</ul>
+    <ul>{listTrees}</ul>
   )
 }
 
-const book = {
-  title: 'A Farewell to Arms',
-  author: 'Earnest Hemingway',
-  published: '1929',
-  image: 'https://upload.wikimedia.org/wikipedia/en/4/48/Hemingway_farewell.png',
-  width: '264',
-  height: '378'
+const willow = {
+  name: 'Weeping Willow',
+  kingdom: 'Plantae',
+  binomial: 'Salix babylonica',
+  image: logo,
+  width: '350px',
+  height: '400px'
 };
 
-function Bookshelf() {
+function WillowAdvertisement() {
   return (
     <div>
-      <h2>{book.title} ({book.published})</h2>
-      <p>{book.author}</p>
+      <h2>{willow.name} ({willow.binomial})</h2>
+      <p>{willow.kingdom}</p>
       <img 
-        className="bookCover"
-        src={book.image}
-        alt={book.title + ' cover'}
+        className="willowCover"
+        src={willow.image}
+        alt={willow.name + ' cover'}
         style={{
-          width: book.width,
-          height: book.height
+          width: willow.width,
+          height: willow.height
         }}
       />
     </div>
@@ -51,11 +52,11 @@ function Bookshelf() {
 }
 
 
-function MagicButton() {
+function OrderButton() {
   return (
     <div>
-      <h3>This is a magic button</h3>
-      <button>Magic</button>
+      <h3>Click here to place an order!</h3>
+      <button>Order</button>
     </div>
   )
 }
@@ -64,9 +65,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <ZineRack />
-        <Bookshelf />
-        <MagicButton />
+        <TreeTypes />
+        <WillowAdvertisement />
+        <OrderButton />
       </header>
     </div>
   );
