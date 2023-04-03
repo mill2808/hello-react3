@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { supabase } from './supabaseClient';
 import logo from './willow.jpg';
-import './App.css';
 
 function Library() {
   const [myBooks, setMyBooks] = useState([]);
