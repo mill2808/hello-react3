@@ -1,0 +1,16 @@
+h1 {
+    font-family: copperplate;
+  }
+  
+    tr {
+      font-family: fantasy;
+      background-color: #ebddf1;
+    }
+  
+   tr:hover {background-color: #d6bbe4;}
+  
+  th, td {
+     padding: 15px;
+    text-align: left;
+  }
+    

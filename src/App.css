@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.favorite-books {
+        font-family: fantasy;
+        background-color: #ad9eb3;
+        padding: 15px;
+        text-align: left;
+}
+
+tr:hover {background-color: #7e7085;}
+
+

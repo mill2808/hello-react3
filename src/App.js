@@ -1,6 +1,36 @@
 //import logo from './logo.svg';
+
+import { useState } from 'react';
+import { supabase } from './supabaseClient';
 import logo from './willow.jpg';
 import './App.css';
+
+function Library() {
+  const [myBooks, setMyBooks] = useState([]);
+  async function getBooks() {
+    let { data: books, error } = await supabase
+      .from('books')
+      .select('*')
+    setMyBooks(books);
+  }
+  getBooks();
+  
+  return (
+    <table className="favorite-books">
+      {
+        myBooks.map(b => (
+          <tr>
+            <td>{b.title}</td>
+            <td>{b.author}</td>
+            <td>{b.isbn}</td>
+          </tr>
+        ))
+      }
+    </table>
+  )
+}
+
+
 
 const species = [
   {id: 1, title: 'Weeping Willow', theme: 'deciduous', isAvailable: true},
@@ -41,7 +71,7 @@ function WillowAdvertisement() {
       <img 
         className="willowCover"
         src={willow.image}
-        alt={willow.name + ' cover'}
+        alt={willow.name}
         style={{
           width: willow.width,
           height: willow.height
@@ -53,10 +83,14 @@ function WillowAdvertisement() {
 
 
 function OrderButton() {
+  const [count, setCount] = useState(0);
+  function doMagic() {
+    setCount(count + 1);
+  }
   return (
     <div>
       <h3>Click here to place an order!</h3>
-      <button>Order</button>
+      <button onClick={doMagic}>Order {count}</button>
     </div>
   )
 }
@@ -65,6 +99,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Library />
         <TreeTypes />
         <WillowAdvertisement />
         <OrderButton />
